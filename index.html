@@ -1,15 +1,25 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Contact book</title>
-        <link rel="stylesheet" href="style.css"/>
-      <H1>CONTACT BOOK</H1>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/custom.css" />
+        <link rel="stylesheet" href="fontAwesome/css/all.css">
+        <title>CONTACT BOOK</title>
     </head>
 
     <body onload="fetchContacts()">
-        <div id="table">Contacts loading....</div>
-        <button id="refresh" type="button">Refresh</button>
-        <button id="addContact"type="button">Add contact</button>
+
+        <div class="table">
+            <h1>CONTACTS BOOK <i class="fa fa-phone-square" aria-hidden="true"></i></h1>
+            <div class="d-flex align-items-center" id="table">
+                <strong>Loading ... </strong>
+                <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+            </div>
+                <button id="refresh" type="button">Refresh</button>
+                <button id="addContact" type="button">Add Contact</button>
+        </div>
 
         <script src="config.js"></script>
         <script>
@@ -43,19 +53,19 @@
                             <td><h5>${data[a].firstname}</h5></td>
                             <td><h5>${data[a].lastname}</h5></td>
                         </tr>
-                        `;// displays the data
+                        `;
                     }
 
                     output+="</table>";
                     document.getElementById("table").innerHTML=output;
             }
 
-            function addContact()//opens another webpages
+            function addContact()
             {
                 window.open("add-contact.html","_self");
             }
 
-            function editContact(id)//opens another webpages
+            function editContact(id)
             {
                 window.open("edit-contact.html?="+id,"_self");
             }
